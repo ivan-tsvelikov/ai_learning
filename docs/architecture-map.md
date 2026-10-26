@@ -2,12 +2,12 @@
 status: established-foundation
 mode: greenfield-bootstrap
 updated_at: "2026-10-26"
-reflects_commit: "9f61db7"
+reflects_commit: "281e36f"
 ---
 
 # Architecture map — ai_learning
 
-Цільовий фундамент нового навчального проєкту. На момент reflects_commit існували лише документи. Контексти та події — з [bc-map.md](bc-map.md); остаточна будова всіх BC змінена на Hexagonal за рішенням власника. Каркас нижче ще має бути матеріалізований за [планом](features/_scaffold/tasks/tasks.json).
+Фундамент нового навчального проєкту. reflects_commit позначає коміт погодженого фундаменту, після якого матеріалізовано каркас за [планом](features/_scaffold/tasks/tasks.json); результати — у [трекері](features/_scaffold/tasks/tracker.md) та [матеріалах здачі](lesson-submission.md). Контексти та події — з [bc-map.md](bc-map.md); усі BC використовують Hexagonal за рішенням власника.
 
 ## Stack
 
@@ -85,7 +85,7 @@ N/A: HTTP API only. Frontend, design system and screens are out of this lesson.
 - Нова фіча: modules/<bc>/domain, app, infra; інструкція — README конкретного BC.
 - Технічний старт: bootstrap/HealthResource.java; конфігурація — src/main/resources/application.properties.
 - SQL: src/main/resources/db/migration/; тести: src/test/java/.
-- Повні команди та інструкції здачі: docs/lesson-submission.md після реалізації каркаса.
+- Повні команди: docs/development.md; фактичні перевірки й кроки здачі: docs/lesson-submission.md.
 
 ## Constraints and unknowns
 
@@ -96,4 +96,4 @@ N/A: HTTP API only. Frontend, design system and screens are out of this lesson.
 
 ## Reconciliation
 
-docs/ARCHITECTURE.md — незмінене демо курсу, не authored architecture цього застосунку. Кореневий ARCHITECTURE.md буде короткою вижимкою цієї карти. AGENTS.md зберігає всі попередні правила й доповнюється конвенціями каркаса.
+docs/ARCHITECTURE.md — незмінене демо курсу, не authored architecture цього застосунку. Кореневий ARCHITECTURE.md — коротка вижимка цієї карти. AGENTS.md зберігає всі попередні правила й доповнений конвенціями каркаса.

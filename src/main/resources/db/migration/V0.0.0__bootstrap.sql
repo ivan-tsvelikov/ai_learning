@@ -1,0 +1,1 @@
+-- Empty scaffold baseline: no business tables, procedures or schema changes.

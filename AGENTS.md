@@ -58,3 +58,20 @@ Before investigating logs, checking a Jira ticket, reviewing code, or changing c
 The first digit increments only if a new table is created or an old table is deleted
 The second digit increments only for the creation or deletion of auxiliary DB features, such as triggers and procedures.
 The third digit increments only for altering existing tables and procedures
+
+## Architecture
+
+@ARCHITECTURE.md
+
+- Stack: Java 21, Quarkus, Hibernate ORM, PostgreSQL, Flyway; Maven Wrapper.
+- All five contexts use Hexagonal domain/app/infra under src/main/java/com/ivantsvelikov/ailearning/modules/.
+- Dependencies: app -> domain; infra -> app/domain. No direct imports between contexts.
+- Domain has no framework imports. App has no JPA/CDI/HTTP or infra imports. JPA entities live in infra, separate from domain objects.
+- Event handlers live in the receiving context's infra/events. Do not put business logic in shared.
+- Do not implement business features while building the scaffold; contexts initially contain only README.md.
+- Hibernate validates schemas; Flyway owns DDL. Never enable schema update/drop-and-create or automatic Flyway clean.
+- Tests: Windows .\mvnw.cmd test, Unix ./mvnw test. Full check: Maven verify. Import lint: Maven -Dtest=ArchitectureTest test.
+- Default tests do not use a database or Docker. Maven -Pdbtest test is opt-in and requires approval for its database.
+- Use Maven Wrapper; keep dependency caches in project .cache/. Never commit .env, tokens, .idea or target/.
+- Keep existing readiness checks above, even though this repository is hosted on GitHub.
+- Look up goals in SPEC.md, context vocabulary/events in docs/bc-map.md, the full map in docs/architecture-map.md, decisions in docs/adr/.
