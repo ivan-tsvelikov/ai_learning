@@ -1,0 +1,7 @@
+.idea/
+target/
+.cache/
+.env
+.env.*
+!.env.example
+*.log

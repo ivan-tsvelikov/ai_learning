@@ -1,0 +1,10 @@
+{
+  "slug": "_scaffold",
+  "tasks": [
+    {"id":"S1","title":"Create Maven/Quarkus entry point and five BC README files","layer":"scaffold","deps":[],"acs":[],"dod":"Maven compile/package succeeds; exactly five context README files exist; /health responds; no business logic","files_hint":["pom.xml","mvnw","mvnw.cmd","src/main/java/",".gitignore"]},
+    {"id":"S2","title":"Add smoke test and architecture constraints with negative fixtures","layer":"scaffold","deps":["S1"],"acs":[],"dod":"Maven test succeeds without Docker; HTTP health and 404 checked; ArchUnit catches invalid dependencies and permits valid ones","files_hint":["src/test/java/","pom.xml"]},
+    {"id":"S3","title":"Configure isolated PostgreSQL, ORM and Flyway bootstrap","layer":"scaffold","deps":["S1"],"acs":[],"dod":"ORM uses validate, no automatic schema changes; default tests avoid DB; opt-in dbtest migrates/validates/repeats bootstrap when DB use is authorized; no automatic undo claim","files_hint":["compose.yaml",".env.example","src/main/resources/","src/test/java/"]},
+    {"id":"S4","title":"Add portable commands and GitHub Actions","layer":"scaffold","deps":["S2","S3"],"acs":[],"dod":"Wrapper build/test/lint commands run on Windows; GitHub CI invokes same verify command; dependencies/cache stay inside project","files_hint":[".mvn/",".github/workflows/","scripts/"]},
+    {"id":"S5","title":"Complete project memory and lesson evidence","layer":"scaffold","deps":["S4"],"acs":[],"dod":"AGENTS <=200 lines with Architecture and @ARCHITECTURE.md; root ARCHITECTURE <=60 lines; SPEC present; no CLAUDE.md for no-project variant; evidence distinguishes actual checks from pending Claude /context and DB checks","files_hint":["AGENTS.md","ARCHITECTURE.md","SPEC.md","docs/lesson-submission.md","docs/features/_scaffold/tasks/tracker.md"]}
+  ]
+}
